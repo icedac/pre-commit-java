@@ -1,6 +1,6 @@
 FROM openjdk:17-alpine
 
-RUN apk add --update --no-cache wget unzip curl bash jq
+RUN apk add --update --no-cache wget unzip curl bash jq dos2unix
 RUN mkdir -p /opt
 
 RUN cd /opt \
@@ -18,3 +18,4 @@ COPY run_pmd.sh /opt
 COPY run_cpd.sh /opt
 COPY ruleset.xml /opt
 COPY run_checkstyle.sh /opt
+RUN dos2unix /opt/*.sh
